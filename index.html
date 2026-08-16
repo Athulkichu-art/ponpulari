@@ -378,7 +378,15 @@
 
       output.style.display = 'block';
       output.innerHTML = `🌼 <strong>${name}</strong>-ന്റെ കുടുംബത്തിന് 'പൊൻപുലരി'യുടെ ഹൃദയം നിറഞ്ഞ തിരുവോണാശംസകൾ! 🌾✨`;
-    }
+    } 
+    document.getElementById('download-btn').addEventListener('click', function() {
+    html2canvas(document.getElementById('card-element')).then(function(canvas) {
+        var link = document.createElement('a');
+        link.download = 'aashamsakal.png';
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    });
+});
   </script>
 </body>
 </html>
