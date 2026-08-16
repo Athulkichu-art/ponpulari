@@ -357,7 +357,7 @@
       <input type="text" id="userName" placeholder="ഉദാ: രാഹുൽ / അഞ്ജലി">
       <button class="btn" onclick="generateWish()">ആശംസ കാണൂ</button>
 
-      <div class="greeting-output" id="greetingOutput"></div>
+      <div class="greeting-output" id='card-element'></div>
     </div>
   </section>
 
@@ -368,7 +368,7 @@
   <script>
     function generateWish() {
       const name = document.getElementById('userName').value.trim();
-      const output = document.getElementById('greetingOutput');
+      const output = document.getElementById('card-element');
 
       if (name === '') {
         output.style.display = 'block';
