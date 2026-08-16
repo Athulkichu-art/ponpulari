@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>പൊൻപുലരി - പൊന്നോണക്കാലം</title>
+  
+  <!-- Google Fonts: Malayalam & Modern Styling -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #AA820A;
+      --cream: #FFFDF6;
+      --kasavu-border: #E6CA65;
+      --dark-green: #1A3E26;
+      --text-dark: #222222;
+      --text-light: #555555;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Manjari', 'Montserrat', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Kasavu Style Golden Top Bar */
+    .kasavu-bar {
+      height: 8px;
+      background: linear-gradient(90deg, #b8860b, #ffd700, #daa520, #ffd700, #b8860b);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 8%;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark-green);
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: var(--gold-dark);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold-dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+      background: radial-gradient(circle at center, #fff9e6 0%, #fffdf6 70%);
+      border-bottom: 2px solid var(--kasavu-border);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-dark);
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      color: var(--dark-green);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      color: var(--text-light);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    }
+
+    /* Common Section Styles */
+    section {
+      padding: 4.5rem 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: var(--dark-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--gold-dark);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+    }
+
+    /* Grid Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      border-top: 4px solid var(--gold);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      color: var(--dark-green);
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    /* Onasadya Highlights */
+    .sadya-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .sadya-item {
+      background: #ffffff;
+      border: 1px solid var(--kasavu-border);
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+
+    /* Interactive Greeting Box */
+    .wishes-box {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--kasavu-border);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .wishes-box input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .wishes-box input:focus {
+      outline: 2px solid var(--gold);
+      border-color: transparent;
+    }
+
+    .greeting-output {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      background: #fff9e6;
+      border-radius: 8px;
+      border-left: 4px solid var(--gold-dark);
+      font-weight: 700;
+      color: var(--dark-green);
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-green);
+      color: #ffffff;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border-top: 5px solid var(--gold);
+    }
+
+    footer p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="kasavu-bar"></div>
+
+  <nav>
+    <div class="logo">പൊൻ<span>പുലരി</span></div>
+    <ul>
+      <li><a href="#about">ഐതിഹ്യം</a></li>
+      <li><a href="#traditions">ആഘോഷങ്ങൾ</a></li>
+      <li><a href="#sadya">സദ്യ</a></li>
+      <li><a href="#wishes">ആശംസകൾ</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-badge">ഹൃദയം നിറഞ്ഞ ഓണാശംസകൾ</div>
+    <h1>പൊൻപുലരി</h1>
+    <p>തുമ്പപ്പൂവും കാക്കപ്പൂവും വിരിയുന്ന അത്തം നാളുകളിൽ സ്നേഹത്തിന്റെയും സമൃദ്ധിയുടെയും ഓർമ്മകൾ പുതുക്കാം.</p>
+    <a href="#wishes" class="btn">ആശംസ പങ്കുവെക്കൂ</a>
+  </header>
+
+  <!-- Legend Section -->
+  <section id="about">
+    <h2 class="section-title">ഓണത്തിന്റെ ഐതിഹ്യം</h2>
+    <p class="section-subtitle">സ്നേഹത്തിന്റെയും സമത്വത്തിന്റെയും നല്ല നാളുകൾ</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">👑</div>
+        <h3>മഹാബലി തമ്പുരാൻ</h3>
+        <p>പ്രജകളെ ജീവനുതുല്യം സ്നേഹിച്ച നീതിമാനായ മഹാബലി രാജാവിന്റെ സന്ദർശന ദിനമാണ് തിരുവോണം.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌸</div>
+        <h3>അത്തപ്പൂക്കളം</h3>
+        <p>അത്തം മുതൽ തിരുവോണം വരെയുള്ള പത്തു നാളുകളിൽ പൂക്കളമൊരുക്കി മഹാബലിയെ വരവേൽക്കുന്നു.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h3>മാവേലി നാട്</h3>
+        <p>"മാവേലി നാടു വാണീടും കാലം മാനുഷരെല്ലാരും ഒന്നുപോലെ..." എന്ന സമത്വത്തിന്റെ സന്ദേശം.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Traditions Section -->
+  <section id="traditions" style="background: #fdfbf2;">
+    <h2 class="section-title">ഓണാഘോഷങ്ങൾ</h2>
+    <p class="section-subtitle">കേരളത്തിന്റെ തനിമയാർന്ന കലാരൂപങ്ങളും കളികളും</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🚣‍♂️</div>
+        <h3>വള്ളംകളി</h3>
+        <p>ആറന്മുളയും പായിപ്പാടും നെഹ്‌റുട്രോഫിയും ഉൾപ്പെടുന്ന ജലോത്സവങ്ങളുടെ ആവേശം.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🐯</div>
+        <h3>പുലികളി</h3>
+        <p>മേളക്കൊഴുപ്പിൽ തൃശൂർ സ്വരാജ് റൗണ്ടിൽ അരങ്ങേറുന്ന തനത് പുലിക്കളി മേളം.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💃</div>
+        <h3>തിരുവാതിരക്കളി</h3>
+        <p>പരമ്പരാഗത വേഷഭൂഷാദികളോടെയുള്ള തുമ്പി തുള്ളലും കൈകൊട്ടിക്കളിയും.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onasadya Section -->
+  <section id="sadya">
+    <h2 class="section-title">വിഭവസമൃദ്ധമായ ഓണസദ്യ</h2>
+    <p class="section-subtitle">വാഴയിലയിലെ രുചിക്കൂട്ടുകൾ</p>
+    <div class="sadya-list">
+      <div class="sadya-item">അവിയിൽ</div>
+      <div class="sadya-item">സാമ്പാർ</div>
+      <div class="sadya-item">തോരൻ</div>
+      <div class="sadya-item">പച്ചടി</div>
+      <div class="sadya-item">ഓലൻ</div>
+      <div class="sadya-item">എരിശ്ശേരി</div>
+      <div class="sadya-item">ഇഞ്ചിപ്പുളി</div>
+      <div class="sadya-item">പാലട പ്രഥമൻ</div>
+      <div class="sadya-item">പരിപ്പ് പായസം</div>
+      <div class="sadya-item">ഉപ്പേരി & ശർക്കരവരട്ടി</div>
+    </div>
+  </section>
+
+  <!-- Wishes Generator Section -->
+  <section id="wishes" style="background: #fdfbf2;">
+    <h2 class="section-title">ഓണാശംസകൾ അയക്കാം</h2>
+    <p class="section-subtitle">നിങ്ങളുടെ പേര് നൽകി സ്വന്തം ആശംസാ കാർഡ് നിർമ്മിക്കൂ</p>
+    
+    <div class="wishes-box">
+      <label for="userName" style="font-weight: 700;">നിങ്ങളുടെ പേര് നൽകുക:</label>
+      <input type="text" id="userName" placeholder="ഉദാ: രാഹുൽ / അഞ്ജലി">
+      <button class="btn" onclick="generateWish()">ആശംസ കാണൂ</button>
+
+      <div class="greeting-output" id="greetingOutput"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 പൊൻപുലരി | ഏവർക്കും നന്മ നിറഞ്ഞ പൊന്നോണാശംസകൾ</p>
+  </footer>
+
+  <script>
+    function generateWish() {
+      const name = document.getElementById('userName').value.trim();
+      const output = document.getElementById('greetingOutput');
+
+      if (name === '') {
+        output.style.display = 'block';
+        output.innerHTML = 'ദയവായി നിങ്ങളുടെ പേര് നൽകുക.';
+        return;
+      }
+
+      output.style.display = 'block';
+      output.innerHTML = `🌼 <strong>${name}</strong>-ന്റെ കുടുംബത്തിന് 'പൊൻപുലരി'യുടെ ഹൃദയം നിറഞ്ഞ തിരുവോണാശംസകൾ! 🌾✨`;
+    }
+  </script>
+</body>
+</html>
